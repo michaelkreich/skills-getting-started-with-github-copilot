@@ -120,6 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const activity = deleteButton.dataset.activity;
     const email = deleteButton.dataset.email;
+    const confirmed = window.confirm(`Remove ${email} from ${activity}?`);
+    if (!confirmed) {
+      return;
+    }
 
     try {
       const response = await fetch(
